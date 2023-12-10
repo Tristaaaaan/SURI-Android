@@ -1,0 +1,167 @@
+<HistoryWindow>:
+    name: "history"
+    MDBoxLayout:
+        md_bg_color: [224/255, 224/255, 224/255, 1]
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        size_hint: 1, 1
+        padding: [0, 20, 0, 0]
+        orientation: 'vertical'
+        MDBoxLayout:
+            adaptive_height: True
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            padding: [10, 0, 10, 0]
+            MDCard:
+                md_bg_color: [114/255, 89/255, 89/255, 1]
+                theme_text_color: 'Custom'
+                padding: 20
+                radius: 20
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: 20
+                    MDLabel: 
+                        halign: 'center'
+                        size_hint_x: 1
+                        theme_text_color: 'Custom'
+                        text_color: 'white'
+                        font_size: '40sp'
+                        text: '25'
+                        font_name: 'assets/fonts/Lexend-Bold.ttf'
+                    MDLabel: 
+                        halign: 'center'
+                        size_hint_x: 1
+                        theme_text_color: 'Custom'
+                        text_color: 'white'
+                        font_size: '15sp'
+                        text: 'Number of Detected Infected Berries Today'
+                        font_name: 'assets/fonts/Lexend-Light.ttf'
+        MDBoxLayout:
+            size_hint_y: .1
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            padding: [10, 0, 10, 0]
+            MDBoxLayout:
+                orientation: 'horizontal'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                size_hint: 1, 1
+                MDLabel:
+                    text: 'Today'
+                    halign: 'left'
+                    font_size: '25sp'
+                    font_name: 'assets/fonts/Lexend-Medium.ttf'
+                    text_color: [114/255, 89/255, 89/255, 1]
+                    theme_text_color: 'Custom'            
+                MDFlatButton:
+                    text: 'View History'
+                    pos_hint: {'center_y': .5, 'center_x': .5}
+                    size_hint_x: 0.1
+                    font_name: 'assets/fonts/Lexend-Regular.ttf'
+                    text_color: [114/255, 89/255, 89/255, 1]
+                    theme_text_color: 'Custom'
+                    font_size: '15sp'
+                    on_release:
+                        root.view_history()
+
+        MDBoxLayout:
+            size_hint_y: .9
+            ScrollView:
+                MDList:
+                    id: listexpenses
+                    padding: 0
+                    spacing: 10
+
+<Chats>:
+    size_hint_y: None
+    height: content.height
+    md_bg_color: [224/255, 224/255, 224/255, 1]
+    on_release:
+        root.switch_screen()
+    MDBoxLayout:
+        padding: [5, 0, 5, 0]
+        MDBoxLayout:
+            id: content
+            spacing: 10
+            radius: [10, 40, 40, 10]
+            md_bg_color: [114/255, 89/255, 89/255, 1]
+            padding: dp(10)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            adaptive_height: True
+            MDIconButton:
+                canvas.before:
+                    Color:
+                        rgba: root.identity_bg
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [dp(10), dp(10)] 
+                icon: root.icon
+                ripple_scale: 0
+                theme_icon_color: 'Custom'
+                icon_color: [0, 0, 0, 1]
+                pos_hint: {'center_x': .5}
+            MDBoxLayout:
+                orientation: 'vertical'
+                MDLabel:
+                    text: f'{root.identity}'
+                    theme_text_color: 'Custom'
+                    text_color: root.id_text_color
+                    font_name: 'assets/fonts/Lexend-Medium.ttf'
+                MDLabel:
+                    text: f'{root.date}'
+                    theme_text_color: 'Custom'
+                    text_color: root.id_text_color
+                    font_size: '10sp'
+                    font_name: 'assets/fonts/Lexend-Regular.ttf'
+            MDLabel:
+                text: '10:08AM'
+                theme_text_color: 'Custom'
+                text_color: 'white'
+                halign: 'right'
+                font_size: '15sp'
+                padding: [0, 0, 20, 0]
+                font_name: 'assets/fonts/Lexend-Regular.ttf'
+
+<DialogContent>:
+    orientation: "vertical"
+    size_hint: 0.8, 1
+    pos_hint_y: 1
+    adaptive_height: True
+    spacing: 10
+    MDBoxLayout:   
+        adaptive_height: True
+        Image:
+            source: 'assets/images/coffee-borer1.jpg'
+            size_hint_y: None
+            height: dp(200)
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        adaptive_height: True
+        size_hint_x: 1
+
+        MDLabel:
+            text: "DATE"  
+            halign: 'left'
+            font_size: '20sp'
+            theme_text_color: 'Custom'
+            text_color:  [114/255, 89/255, 89/255, 1]
+            font_name: 'assets/fonts/Lexend-Medium.ttf'
+        MDLabel:
+            text: "Wednesday, November 8, 2023"  
+            font_size: '10sp'
+            halign: 'left'
+            theme_text_color: 'Custom'
+            text_color:  [114/255, 89/255, 89/255, 1]
+            font_name: 'assets/fonts/Lexend-Regular.ttf'
+        MDLabel:
+            text: "TIME"  
+            halign: 'left'
+            font_size: '20sp'
+            theme_text_color: 'Custom'
+            text_color:  [114/255, 89/255, 89/255, 1]
+            font_name: 'assets/fonts/Lexend-Medium.ttf'
+        MDLabel:
+            text: "10:08 AM"  
+            font_size: '10sp'
+            halign: 'left'
+            theme_text_color: 'Custom'
+            text_color:  [114/255, 89/255, 89/255, 1]
+            font_name: 'assets/fonts/Lexend-Regular.ttf'

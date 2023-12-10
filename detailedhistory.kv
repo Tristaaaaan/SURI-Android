@@ -1,0 +1,39 @@
+<DetailedHistoryWindow>:
+    name: "detailedhistory"
+    MDBoxLayout:
+        md_bg_color: [224/255, 224/255, 224/255, 1]
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        size_hint: 1, 1
+        orientation: 'vertical'
+        MDBoxLayout:
+            adaptive_height: True
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            MDRelativeLayout:
+                orientation: 'horizontal'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                padding: [5, 0, 5, 0]
+                size_hint_x: 1
+                MDIconButton:
+                    pos_hint: {'center_y': .5}
+                    icon: 'arrow-left'
+                    halign: 'right'
+                    border: [20, 20, 20, 20]
+                    text_color: [114/255, 89/255, 89/255, 1]
+                    theme_text_color: 'Custom'
+                    on_release:
+                        root.switch_to_main()
+                MDLabel:
+                    text: 'History'
+                    halign: 'center'
+                    font_size: '35sp'
+                    font_name: 'assets/fonts/Lexend-Bold.ttf'
+                    text_color: [114/255, 89/255, 89/255, 1]
+                    theme_text_color: 'Custom'
+
+        MDBoxLayout:
+            size_hint_y: .9
+            ScrollView:
+                MDList:
+                    id: detailed_history
+                    padding: 0
+                    spacing: 10
